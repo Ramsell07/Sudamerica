@@ -1,0 +1,343 @@
+/* Fondo abstracto con figuras */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4F8; /* Azul pálido */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Círculos en el fondo con tonos neutros */
+body::before, body::after, 
+body .circle1, body .circle2, body .circle3, body .circle4 {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(204, 204, 204, 0.7), rgba(204, 204, 204, 0.2)); /* Gris claro */
+    z-index: -1;
+}
+
+/* Primer círculo grande en tonos neutros */
+body::before {
+    width: 500px;
+    height: 500px;
+    top: -200px;
+    left: -200px;
+}
+
+/* Segundo círculo en tonos neutros */
+body::after {
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    right: -150px;
+}
+
+/* Círculos adicionales */
+.circle1 {
+    width: 350px;
+    height: 350px;
+    top: 100px; /* Ajusta la posición según lo necesites */
+    left: 300px;
+    background: radial-gradient(circle at center, rgba(173, 216, 230, 0.7), rgba(173, 216, 230, 0.2)); /* Azul claro */
+}
+
+.circle2 {
+    width: 250px;
+    height: 250px;
+    bottom: 50px; /* Ajusta la posición según lo necesites */
+    left: 100px;
+    background: radial-gradient(circle at center, rgba(173, 230, 211, 0.7), rgba(173, 216, 230, 0.2)); /* Azul claro */
+}
+
+.circle3 {
+    width: 400px;
+    height: 400px;
+    top: 300px; /* Ajusta la posición según lo necesites */
+    right: 100px;
+    background: radial-gradient(circle at center, rgba(69, 92, 100, 0.7), rgba(173, 216, 230, 0.2)); /* Azul claro */
+}
+
+.circle4 {
+    width: 450px;
+    height: 450px;
+    bottom: 200px; /* Ajusta la posición según lo necesites */
+    right: 200px;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    background: linear-gradient(135deg, #2C3E50, #E8EAF6); /* Tonos neutros: Azul oscuro a gris */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 0 10px;
+    height: 30px;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+header h1 {
+    font-size: 2.0em;
+    font-weight: 700;
+    color: white; /* Blanco para contrastar con fondo oscuro */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    flex: 1;
+}
+
+/* Estilo de las tarjetas de ciudades */
+#cities-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea si no caben */
+    justify-content: space-around; /* Espacio uniforme alrededor de las tarjetas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px;
+}
+
+.city-card {
+    flex: 1 1 calc(25% - 40px); /* Cada tarjeta toma hasta el 25% del ancho, menos el espacio entre ellas */
+    background-color: #fff; /* Color de fondo de la tarjeta */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    max-width: 300px; /* Máximo ancho para las tarjetas */
+}
+
+.city-card:hover {
+    transform: translateY(-5px); /* Efecto hover */
+}
+
+@media (max-width: 1200px) {
+    .city-card {
+        flex: 1 1 calc(33.33% - 40px); /* Cambia a 3 tarjetas por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 900px) {
+    .city-card {
+        flex: 1 1 calc(50% - 40px); /* Cambia a 2 tarjetas por fila en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 600px) {
+    .city-card {
+        flex: 1 1 calc(100% - 40px); /* Una tarjeta por fila en pantallas muy pequeñas */
+    }
+}
+
+
+.city-card:hover {
+    
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.city-card h2 {
+    color: #4A90E2; /* Azul neutro */
+    font-size: 1.5em;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.city-card .time {
+    font-size: 2.5em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.city-card .day {
+    margin-bottom: 0;
+    text-transform: capitalize;
+    color: #333; /* Asegura que se vea en modo oscuro */
+}
+
+.city-card .date {
+    font-size: 1.2em;
+    color: #888;
+    margin-top: 2px;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2)); /* Sombra suave */
+}
+
+.weather-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+.city-header {
+    display: flex;              /* Usa flexbox para alinear elementos */
+    align-items: center;        /* Alinea verticalmente el contenido al centro */
+    justify-content: center;    /* Alinea horizontalmente al centro */
+    gap: 10px;                  /* Espacio entre la bandera y el nombre de la ciudad */
+}
+
+.flag-icon {
+    width: 30px;
+    height: auto;
+    
+}
+
+/* Icono del termómetro */
+.thermometer-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Estilo de la temperatura */
+.temperature {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 5px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+
+/* Contenedor general del footer */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacia los elementos al máximo */
+    padding: 15px;
+    color: white;
+}
+/* Ícono de noticia */
+.news-icon {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px; /* Espacio entre el ícono y el banner */
+}
+
+/* Banner de noticias */
+.news-banner {
+    overflow: hidden; /* Oculta lo que sale del contenedor */
+    position: relative;
+    width: 100%;
+    height: 20px; /* Ajusta la altura */
+    background-color: #2C3E50;
+    padding: 15px;
+    color: white;
+}
+
+/* Contenido que se desplaza */
+.news-content {
+    display: flex;
+    white-space: nowrap;
+    color: #efffe9;
+}
+
+
+.news-content p {
+    margin: 0;
+    display: inline-block;
+    padding-right: 100%; /* Espacio adicional */
+    padding: 0;
+    animation: scrollText linear infinite;
+    font-size: 18px; /* O un valor que prefieras */
+    font-weight: bold; /* Esto hará que los titulares se vean más importantes */
+}
+
+/* Animación BOTON*/
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Mueve todo el contenido */
+    }
+}
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #7A9EFA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; /* Asegura que esté siempre por encima del contenido */
+  }
+  
+  .floating-button.dark-mode {
+    background-color: #555;
+    color: #fff;
+  }
+  /* Estilos del modo claro (ya existentes) - no se cambian */
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  .card.dark-mode {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  }
+  
+  .header.dark-mode {
+    background-color: #1b1b1b;
+    color: #ffffff;
+  }
+  
+  .footer.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  #theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #theme-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+  
+  .dark-mode #theme-icon {
+    transform: rotate(180deg); /* Añade un giro suave al cambiar el ícono */
+  }
+  
+  #theme-toggle.dark-mode {
+    background-color: #555;
+    color: #fff;
+  }
+
+  .city-flag {
+    width: 40px; /* Ajusta el tamaño de la bandera */
+    height: auto;
+    display: block;
+    margin: 0 auto 10px; /* Centrar la bandera y dar espacio con el título */
+}
